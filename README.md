@@ -1,6 +1,6 @@
 # Vyntra
 
-Vyntra is a fork of (Vesktop)[https://github.com/Vencord/Vesktop], a custom Discord desktop app
+Vyntra is a fork of [Vesktop](https://github.com/Vencord/Vesktop), a custom Discord desktop app
 
 **Main features**:
 - Vencord preinstalled
@@ -9,7 +9,7 @@ Vyntra is a fork of (Vesktop)[https://github.com/Vencord/Vesktop], a custom Disc
 - Much better privacy, since Discord has no access to your system
 
 **Whats different?**
-- Fixes Vesktop Issue: (#616)[https://github.com/Vencord/Vesktop/issues/161]
+- Fixes Vesktop Issue: [#616](https://github.com/Vencord/Vesktop/issues/161)
 
 ## Building from Source
 
