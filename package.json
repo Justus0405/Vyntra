@@ -61,8 +61,8 @@
         "pnpm": ">=8"
     },
     "build": {
-        "appId": "dev.vencord.vesktop",
-        "productName": "Vesktop",
+        "appId": "dev.vencord.vyntra",
+        "productName": "Vyntra",
         "files": [
             "!*",
             "!node_modules",
@@ -107,7 +107,7 @@
                 }
             ],
             "desktop": {
-                "Name": "Vesktop",
+                "Name": "Vyntra",
                 "GenericName": "Internet Messenger",
                 "Type": "Application",
                 "Categories": "Network;InstantMessaging;Chat;",
