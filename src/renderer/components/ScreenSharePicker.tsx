@@ -64,7 +64,7 @@ interface Source {
 
 export let currentSettings: StreamSettings | null = null;
 
-const logger = new Logger("VesktopScreenShare");
+const logger = new Logger("VyntraScreenShare");
 
 addPatch({
     patches: [

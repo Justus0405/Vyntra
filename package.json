@@ -1,8 +1,8 @@
 {
-    "name": "vesktop",
-    "version": "1.5.3",
+    "name": "vyntra",
+    "version": "1.0.0",
     "private": true,
-    "description": "Vesktop",
+    "description": "Vyntra",
     "keywords": [],
     "homepage": "https://vencord.dev/",
     "license": "GPL-3.0",

@@ -42,10 +42,10 @@ const customSettingsSections = (
 ).customSections;
 
 customSettingsSections.push(() => ({
-    section: "Vesktop",
-    label: "Vesktop Settings",
+    section: "Vyntra",
+    label: "Vyntra Settings",
     element: SettingsUi,
-    className: "vc-vesktop-settings"
+    className: "vc-vyntra-settings"
 }));
 
 const arRPC = Vencord.Plugins.plugins["WebRichPresence (arRPC)"] as any as {
@@ -148,7 +148,7 @@ if (Settings.store[vencordDir]) {
             () =>
                 Alerts.show({
                     title: "Custom Vencord Location",
-                    body: "Due to security hardening changes in Vesktop, your custom Vencord location had to be reset. Please configure it again in the settings.",
+                    body: "Due to security hardening changes in Vyntra, your custom Vencord location had to be reset. Please configure it again in the settings.",
                     onConfirm: () => delete Settings.store[vencordDir]
                 }),
             5000

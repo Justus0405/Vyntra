@@ -8,16 +8,16 @@ import { app } from "electron";
 import { existsSync, mkdirSync, readdirSync, renameSync, rmdirSync } from "fs";
 import { dirname, join } from "path";
 
-const vesktopDir = dirname(process.execPath);
+const vyntraDir = dirname(process.execPath);
 
 export const PORTABLE =
     process.platform === "win32" &&
     !process.execPath.toLowerCase().endsWith("electron.exe") &&
-    !existsSync(join(vesktopDir, "Uninstall Vesktop.exe"));
+    !existsSync(join(vyntraDir, "Uninstall Vyntra.exe"));
 
 const LEGACY_DATA_DIR = join(app.getPath("appData"), "VencordDesktop", "VencordDesktop");
 export const DATA_DIR =
-    process.env.VENCORD_USER_DATA_DIR || (PORTABLE ? join(vesktopDir, "Data") : join(app.getPath("userData")));
+    process.env.VENCORD_USER_DATA_DIR || (PORTABLE ? join(vyntraDir, "Data") : join(app.getPath("userData")));
 
 mkdirSync(DATA_DIR, { recursive: true });
 
@@ -51,7 +51,7 @@ export const VENCORD_FILES_DIR =
     (require("./settings") as typeof import("./settings")).State.store.vencordDir ||
     join(SESSION_DATA_DIR, "vencordFiles");
 
-export const USER_AGENT = `Vesktop/${app.getVersion()} (https://github.com/Vencord/Vesktop)`;
+export const USER_AGENT = `Vyntra/${app.getVersion()} (https://github.com/Justus0405/Vyntra)`;
 
 // dimensions shamelessly stolen from Discord Desktop :3
 export const MIN_WIDTH = 940;
