@@ -2,11 +2,14 @@
 
 Vyntra is a fork of [Vesktop](https://github.com/Vencord/Vesktop), a custom Discord desktop app
 
-**Main features**:
+**Pros**:
 - Vencord preinstalled
 - Much more lightweight and faster than the official Discord app
 - Linux Screenshare with sound & wayland
 - Much better privacy, since Discord has no access to your system
+
+**Cons**:
+- Volume only goes up to 100%
 
 **Whats different?**
 - Fixes Vesktop Issue: [#161](https://github.com/Vencord/Vesktop/issues/161)
