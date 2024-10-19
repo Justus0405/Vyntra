@@ -12,7 +12,13 @@ Vyntra is a fork of [Vesktop](https://github.com/Vencord/Vesktop), a custom Disc
 - Volume only goes up to 100%
 
 **Whats different?**
+
+Fixes:
 - Fixes Vesktop Issue: [#161](https://github.com/Vencord/Vesktop/issues/161)
+
+Minor changes:
+- Disabled Rich Presence by Default
+- Enabled Splash Theming by Default
 
 ## Building from Source
 
