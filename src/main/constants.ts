@@ -51,7 +51,7 @@ export const VENCORD_FILES_DIR =
     (require("./settings") as typeof import("./settings")).State.store.vencordDir ||
     join(SESSION_DATA_DIR, "vencordFiles");
 
-export const USER_AGENT = `Vesktop/${app.getVersion()} (https://github.com/Vencord/Vesktop)`;
+export const USER_AGENT = `Vesktop/${app.getVersion()} (https://github.com/Justus0405/Vyntra)`;
 
 // dimensions shamelessly stolen from Discord Desktop :3
 export const MIN_WIDTH = 940;
