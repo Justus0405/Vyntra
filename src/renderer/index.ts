@@ -61,14 +61,15 @@ VesktopNative.arrpc.onActivity(async data => {
 });
 
 // Force disable automatic gain control
+// Force disable automatic gain control
 (function () {
-    function setLegacyChromeConstraint(constraint, name, value) {
+    function setLegacyChromeConstraint(constraint: any, name: string, value: any) {
         if (constraint.mandatory && name in constraint.mandatory) {
             constraint.mandatory[name] = value;
             return;
         }
         if (constraint.optional) {
-            const element = constraint.optional.find(opt => name in opt);
+            const element = constraint.optional.find((opt: any) => name in opt);
             if (element) {
                 element[name] = value;
                 return;
@@ -81,9 +82,10 @@ VesktopNative.arrpc.onActivity(async data => {
         }
         constraint.optional.push({ [name]: value });
     }
-    function setConstraint(constraint, name, value) {
+
+    function setConstraint(constraint: any, name: string, value: any) {
         if (constraint.advanced) {
-            const element = constraint.advanced.find(opt => name in opt);
+            const element = constraint.advanced.find((opt: any) => name in opt);
             if (element) {
                 element[name] = value;
                 return;
@@ -91,8 +93,8 @@ VesktopNative.arrpc.onActivity(async data => {
         }
         constraint[name] = value;
     }
-    function disableAutogain(constraints) {
-        console.log("Automatically unsetting gain!", constraints);
+
+    function disableAutogain(constraints: any) {
         if (constraints && constraints.audio) {
             if (typeof constraints.audio !== "object") {
                 constraints.audio = {};
@@ -106,35 +108,37 @@ VesktopNative.arrpc.onActivity(async data => {
         }
     }
 
-    function patchFunction(object, name, createNewFunction) {
+    function patchFunction(object: any, name: string, createNewFunction: (original: any) => any) {
         if (name in object) {
-            var original = object[name];
+            const original = object[name];
             object[name] = createNewFunction(original);
         }
     }
 
     patchFunction(navigator.mediaDevices, "getUserMedia", function (original) {
-        return function getUserMedia(constraints) {
+        return function getUserMedia(this: typeof navigator.mediaDevices, constraints: any) {
             disableAutogain(constraints);
             return original.call(this, constraints);
         };
     });
-    function patchDeprecatedGetUserMedia(original) {
-        return function getUserMedia(constraints, success, error) {
+
+    function patchDeprecatedGetUserMedia(original: any) {
+        return function getUserMedia(this: typeof navigator, constraints: any, success: any, error: any) {
             disableAutogain(constraints);
             return original.call(this, constraints, success, error);
         };
     }
+
     patchFunction(navigator, "getUserMedia", patchDeprecatedGetUserMedia);
     patchFunction(navigator, "mozGetUserMedia", patchDeprecatedGetUserMedia);
     patchFunction(navigator, "webkitGetUserMedia", patchDeprecatedGetUserMedia);
+
     patchFunction(MediaStreamTrack.prototype, "applyConstraints", function (original) {
-        return function applyConstraints(constraints) {
+        return function applyConstraints(this: MediaStreamTrack, constraints: any) {
             disableAutogain(constraints);
             return original.call(this, constraints);
         };
     });
-    console.log("Disable Autogain by Joey Watts!", navigator.mediaDevices.getUserMedia);
 })();
 
 // TODO: remove soon
